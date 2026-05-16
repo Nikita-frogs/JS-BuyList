@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <section class="left-panel">
+            <div class="add-item-form">
+                <input type="text" id="item-input" placeholder="Назва товару" aria-label="Введіть назву товару">
+                <button id="add-btn" class="btn-blue" data-tooltip="Додати новий товар до списку">Додати</button>
+            </div>
+            <ul id="items-list" class="items-list">
+                </ul>
+        </section>
+
+        <aside class="right-panel">
+            <div class="stats-section">
+                <h2>Залишилося</h2>
+                <div id="stats-remaining" class="stats-container"></div>
+            </div>
+            <div class="stats-section">
+                <h2>Куплено</h2>
+                <div id="stats-bought" class="stats-container"></div>
+            </div>
+        </aside>
+    </main>
+
+    <div class="author-badge">
+        <div class="badge-title">Buy List</div>
+        <div class="badge-author">Created by:<br>Різник Нікіта</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
