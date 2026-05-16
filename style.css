@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #e0e0e0;
+    padding: 20px;
+    color: #333;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.left-panel {
+    flex: 2;
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stats-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 650px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+.add-item-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+#item-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-blue {
+    background-color: #2185d0;
+    color: white;
+}
+
+.items-list {
+    list-style: none;
+}
+
+.item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.item-row.bought .item-name {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.item-controls,
+.item-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-minus {
+    background: #ffb3b3;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+}
+
+.btn-plus {
+    background: #21ba45;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+}
+
+.btn-buy {
+    background: #f3f3f3;
+    border: 1px solid #ccc;
+    color: #333;
+    width: 100px;
+}
+
+.btn-delete {
+    background: #db2828;
+    color: white;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+}
+
+.qty-display {
+    background: #f3f3f3;
+    padding: 5px 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.5);
+    transform-origin: bottom center;
+    background-color: darkviolet;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+.author-badge {
+    position: fixed;
+    bottom: 0;
+    left: 20px;
+    background-color: #4b0082;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+    transition: background-color 0.4s ease, transform 0.4s ease;
+    transform: translateY(45px);
+    cursor: default;
+    z-index: 9999;
+}
+
+.badge-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.badge-author {
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.author-badge:hover {
+    transform: translateY(0);
+    background-color: #8a2be2;
+}
+
+.author-badge:hover .badge-author {
+    opacity: 1;
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    .author-badge {
+        position: static;
+        transform: translateY(0);
+        background-color: white !important;
+        border: 2px solid #4b0082 !important;
+        color: black !important;
+    }
+
+    .badge-title {
+        display: none;
+    }
+
+    .badge-author {
+        opacity: 1;
+        display: block;
+        color: black;
+        margin-top: 0;
+    }
+
+    .badge-author::before {
+        display: none;
+    }
+}
